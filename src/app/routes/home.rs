@@ -1,4 +1,4 @@
-use crate::handlers::home_handler;
+use crate::app::handlers::home_handler;
 use axum::{routing::get, Router};
 
 pub fn routes() -> Router {
