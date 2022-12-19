@@ -1,1 +1,7 @@
 GET http://localhost:8080/
+
+###
+GET http://localhost:8080/mirror_body_string
+Content-Type: application/xml
+
+Hi i am body text
