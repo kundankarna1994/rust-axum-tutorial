@@ -1,4 +1,4 @@
-use axum::{http::StatusCode, Json};
+use axum::{extract::Path, Json};
 use serde::{Deserialize, Serialize};
 
 pub async fn index() -> String {
@@ -24,4 +24,12 @@ pub async fn mirror_body_json(Json(payload): Json<Payload>) -> Json<MirrorPayloa
         message: payload.message,
         custom_message: "This is custom message from server".to_owned(),
     })
+}
+
+pub async fn path_variables(Path(id): Path<u32>) -> String {
+    id.to_string()
+}
+
+pub async fn path_variables_hard_coded() -> String {
+    "Fifteen".to_owned()
 }
