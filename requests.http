@@ -2,6 +2,14 @@ GET http://localhost:8080/
 
 ###
 GET http://localhost:8080/mirror_body_string
-Content-Type: application/xml
+Content-Type: application/text
 
 Hi i am body text
+
+###
+GET http://localhost:8080/mirror_body_json
+Content-Type: application/json
+
+{
+    "message" : "Hello From Rest Client"
+}

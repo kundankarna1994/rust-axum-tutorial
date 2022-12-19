@@ -5,4 +5,5 @@ pub fn routes() -> Router {
     Router::new()
         .route("/", get(home_handler::index))
         .route("/mirror_body_string", get(home_handler::mirror_body_string))
+        .route("/mirror_body_json", get(home_handler::mirror_body_json))
 }
