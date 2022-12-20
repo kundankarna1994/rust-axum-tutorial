@@ -8,8 +8,8 @@ mod app;
 use crate::app::middlewares::shared_data_middleware;
 
 pub async fn run() {
-    let db_uri = env::var("DATABASE_URL").expect("DB URI Not Found");
-    let db = Database::connect(db_uri).await.unwrap();
+    let db_uri = env::var("DATABASE_URL").expect("DATABASE_URL Not Found");
+    let _db = Database::connect(db_uri).await.unwrap(); //Todo::
     let shared_data = shared_data_middleware::shared_data();
     let cors = CorsLayer::new()
         .allow_methods([Method::GET, Method::POST])
