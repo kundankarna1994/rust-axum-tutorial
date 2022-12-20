@@ -2,9 +2,11 @@ use axum::{
     extract::{Path, Query},
     headers::UserAgent,
     http::HeaderMap,
-    Json, TypedHeader,
+    Extension, Json, TypedHeader,
 };
 use serde::{Deserialize, Serialize};
+
+use crate::app::middlewares::shared_data_middleware::SharedData;
 
 pub async fn index() -> String {
     "Hello From the Server".to_owned()
@@ -56,4 +58,14 @@ pub async fn custom_header(headers: HeaderMap) -> String {
     let message = headers.get("x-custom_header").unwrap();
     let message = message.to_str().unwrap().to_owned();
     message
+}
+
+pub async fn middleware_message(Extension(shared_data): Extension<SharedData>) -> String {
+    return shared_data.message;
+}
+
+#[derive(Clone)]
+pub struct HeaderMessage(pub String);
+pub async fn custom_middleware(Extension(message): Extension<HeaderMessage>) -> String {
+    message.0
 }

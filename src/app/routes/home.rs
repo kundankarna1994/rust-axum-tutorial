@@ -14,4 +14,6 @@ pub fn routes() -> Router {
         .route("/query_params", get(home_handler::query_params))
         .route("/header_user_agent", get(home_handler::header_user_agent))
         .route("/custom_header", get(home_handler::custom_header))
+        .route("/middleware_message", get(home_handler::middleware_message))
+        .route("/custom_middleware", get(home_handler::custom_middleware))
 }
