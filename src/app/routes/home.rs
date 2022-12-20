@@ -16,4 +16,5 @@ pub fn routes() -> Router {
         .route("/custom_header", get(home_handler::custom_header))
         .route("/middleware_message", get(home_handler::middleware_message))
         .route("/custom_middleware", get(home_handler::custom_middleware))
+        .route("/always_error", get(home_handler::always_error))
 }

@@ -1,7 +1,7 @@
 use axum::{
     extract::{Path, Query},
     headers::UserAgent,
-    http::HeaderMap,
+    http::{HeaderMap, StatusCode},
     Extension, Json, TypedHeader,
 };
 use serde::{Deserialize, Serialize};
@@ -68,4 +68,8 @@ pub async fn middleware_message(Extension(shared_data): Extension<SharedData>) -
 pub struct HeaderMessage(pub String);
 pub async fn custom_middleware(Extension(message): Extension<HeaderMessage>) -> String {
     message.0
+}
+
+pub async fn always_error() -> Result<(), StatusCode> {
+    Err(StatusCode::INTERNAL_SERVER_ERROR)
 }
