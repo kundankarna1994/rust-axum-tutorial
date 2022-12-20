@@ -82,3 +82,13 @@ Content-Type: application/json
     "username" : "user1",
     "password": "password"
 }
+
+###
+POST  http://localhost:8080/tasks/create
+Content-Type: application/json
+
+
+{
+    "title" : "Tasks 2",
+    "priority": "Low"
+}

@@ -2,5 +2,4 @@
 
 pub mod prelude;
 
-pub mod companies;
-pub mod users;
+pub mod tasks;
