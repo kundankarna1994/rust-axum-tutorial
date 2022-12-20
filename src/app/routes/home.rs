@@ -12,4 +12,6 @@ pub fn routes() -> Router {
             get(home_handler::path_variables_hard_coded),
         )
         .route("/query_params", get(home_handler::query_params))
+        .route("/header_user_agent", get(home_handler::header_user_agent))
+        .route("/custom_header", get(home_handler::custom_header))
 }

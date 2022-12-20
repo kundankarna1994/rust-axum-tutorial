@@ -1,8 +1,8 @@
-use std::collections::HashMap;
-
 use axum::{
     extract::{Path, Query},
-    Json,
+    headers::UserAgent,
+    http::HeaderMap,
+    Json, TypedHeader,
 };
 use serde::{Deserialize, Serialize};
 
@@ -46,4 +46,14 @@ pub struct QueryParams {
 pub async fn query_params(Query(params): Query<QueryParams>) -> Json<QueryParams> {
     println!("{:?}", params);
     Json(params)
+}
+
+pub async fn header_user_agent(TypedHeader(user_agent): TypedHeader<UserAgent>) -> String {
+    user_agent.to_string()
+}
+
+pub async fn custom_header(headers: HeaderMap) -> String {
+    let message = headers.get("x-custom_header").unwrap();
+    let message = message.to_str().unwrap().to_owned();
+    message
 }

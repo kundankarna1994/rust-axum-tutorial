@@ -29,3 +29,14 @@ Content-Type: application/json
 {
     "message" : "Hello From Rest Client"
 }
+
+###
+GET http://localhost:8080/header_user_agent
+Content-Type: application/json
+User-Agent: Rest Client User Agent
+
+
+###
+GET http://localhost:8080/custom_header
+Content-Type: application/json
+x-custom_header: Custom Header From Header
