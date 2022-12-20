@@ -1,5 +1,8 @@
 use crate::app::handlers::{home_handler, validate_handler};
-use axum::{routing::get, Router};
+use axum::{
+    routing::{get, post},
+    Router,
+};
 
 pub fn routes() -> Router {
     Router::new()
@@ -22,5 +25,9 @@ pub fn routes() -> Router {
         .route(
             "/validate_with_serde",
             get(validate_handler::validate_with_serde),
+        )
+        .route(
+            "/custom_json_extractor",
+            post(validate_handler::custom_json_extractor),
         )
 }
