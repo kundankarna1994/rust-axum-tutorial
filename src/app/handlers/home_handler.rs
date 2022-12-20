@@ -2,6 +2,7 @@ use axum::{
     extract::{Path, Query},
     headers::UserAgent,
     http::{HeaderMap, StatusCode},
+    response::{IntoResponse, Response},
     Extension, Json, TypedHeader,
 };
 use serde::{Deserialize, Serialize};
@@ -72,4 +73,8 @@ pub async fn custom_middleware(Extension(message): Extension<HeaderMessage>) -> 
 
 pub async fn always_error() -> Result<(), StatusCode> {
     Err(StatusCode::INTERNAL_SERVER_ERROR)
+}
+
+pub async fn created() -> Response {
+    (StatusCode::CREATED, "This is a 201".to_owned()).into_response()
 }

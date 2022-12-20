@@ -54,3 +54,7 @@ x-custom_header: Custom Header From Header
 ###
 GET http://localhost:8080/always_error
 Content-Type: application/json
+
+###
+GET http://localhost:8080/created
+Content-Type: application/json
