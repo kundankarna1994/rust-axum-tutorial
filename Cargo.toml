@@ -7,6 +7,8 @@ edition = "2021"
 
 [dependencies]
 axum = { version = "0.6.1", features = ["headers"] }
-tokio = { version = "1.23.0", features = ["macros","rt-multi-thread"] }
+tokio = { version = "1.23.0", features = ["macros", "rt-multi-thread", "full"] }
 serde = {version="1.0.151",features=["derive"]}
 tower-http = { version = "0.3.5", features = ["cors"] }
+sea-orm = { version = "^0", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros" ] }
+dotenvy = "0.15.6"

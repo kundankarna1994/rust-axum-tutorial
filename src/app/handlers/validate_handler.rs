@@ -8,5 +8,6 @@ pub struct RequestUser {
 }
 
 pub async fn validate_with_serde(Json(req_user): Json<RequestUser>) {
-    println!("{:?}", req_user);
+    println!("{:?}", req_user.username);
+    println!("{:?}", req_user.password);
 }
