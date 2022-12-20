@@ -62,3 +62,13 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/send_json_data
 Content-Type: application/json
+
+###
+GET http://localhost:8080/validate_with_serde
+Content-Type: application/json
+
+
+{
+    "username" : "user1",
+    "password": "password"
+}

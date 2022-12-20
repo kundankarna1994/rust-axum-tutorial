@@ -1,4 +1,4 @@
-use crate::app::handlers::home_handler;
+use crate::app::handlers::{home_handler, validate_handler};
 use axum::{routing::get, Router};
 
 pub fn routes() -> Router {
@@ -19,4 +19,8 @@ pub fn routes() -> Router {
         .route("/always_error", get(home_handler::always_error))
         .route("/created", get(home_handler::created))
         .route("/send_json_data", get(home_handler::send_json_data))
+        .route(
+            "/validate_with_serde",
+            get(validate_handler::validate_with_serde),
+        )
 }
