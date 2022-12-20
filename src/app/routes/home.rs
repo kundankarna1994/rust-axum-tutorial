@@ -18,4 +18,5 @@ pub fn routes() -> Router {
         .route("/custom_middleware", get(home_handler::custom_middleware))
         .route("/always_error", get(home_handler::always_error))
         .route("/created", get(home_handler::created))
+        .route("/send_json_data", get(home_handler::send_json_data))
 }

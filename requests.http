@@ -58,3 +58,7 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/created
 Content-Type: application/json
+
+###
+GET http://localhost:8080/send_json_data
+Content-Type: application/json

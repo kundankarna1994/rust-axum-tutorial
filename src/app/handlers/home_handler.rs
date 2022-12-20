@@ -78,3 +78,17 @@ pub async fn always_error() -> Result<(), StatusCode> {
 pub async fn created() -> Response {
     (StatusCode::CREATED, "This is a 201".to_owned()).into_response()
 }
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct SendJsonData {
+    message: String,
+    count: i32,
+    username: String,
+}
+pub async fn send_json_data() -> Json<SendJsonData> {
+    Json(SendJsonData {
+        message: "Hi i am message".to_owned(),
+        count: 13,
+        username: "JohnDoe".to_owned(),
+    })
+}
