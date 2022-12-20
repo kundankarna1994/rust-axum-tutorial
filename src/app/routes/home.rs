@@ -11,4 +11,5 @@ pub fn routes() -> Router {
             "/path_variables/15", // ordering doesnot matter in axum, it still works
             get(home_handler::path_variables_hard_coded),
         )
+        .route("/query_params", get(home_handler::query_params))
 }

@@ -1,4 +1,9 @@
-use axum::{extract::Path, Json};
+use std::collections::HashMap;
+
+use axum::{
+    extract::{Path, Query},
+    Json,
+};
 use serde::{Deserialize, Serialize};
 
 pub async fn index() -> String {
@@ -32,4 +37,13 @@ pub async fn path_variables(Path(id): Path<u32>) -> String {
 
 pub async fn path_variables_hard_coded() -> String {
     "Fifteen".to_owned()
+}
+#[derive(Debug, Serialize, Deserialize)]
+pub struct QueryParams {
+    message: String,
+}
+
+pub async fn query_params(Query(params): Query<QueryParams>) -> Json<QueryParams> {
+    println!("{:?}", params);
+    Json(params)
 }
